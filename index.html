@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interaktywna dokumentacja klipu Kon-Sti-La-Na — sceny, ujęcia, plan dnia, zadania ekipy i checklisty produkcyjne." />
+  <title>Kon-Sti-La-Na — dokumentacja klipu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="intro-overlay" id="introOverlay" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <div class="intro-stage" aria-live="polite">
+      <button class="intro-skip" type="button" id="introSkipButton">Pomiń</button>
+      <div class="intro-grid-lines" aria-hidden="true"></div>
+      <div class="intro-orbit" aria-hidden="true"></div>
+      <div class="intro-card">
+        <img class="intro-cybek" src="assets/cybek.png" alt="" />
+        <div class="intro-copy">
+          <p class="intro-kicker">Dokumentacja klipu</p>
+          <h2 id="introTitle">Kon-Sti-La-Na</h2>
+          <p>Mapa scen. Checklisty. Betonowe królestwo Cybana.</p>
+        </div>
+      </div>
+      <div class="intro-count" aria-hidden="true">
+        <span>KON</span>
+        <span>STI</span>
+        <span>LA</span>
+        <span>NA</span>
+      </div>
+      <div class="intro-progress" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <nav class="topbar" aria-label="Nawigacja główna">
+      <a class="brand" href="#top" aria-label="Kon-Sti-La-Na — góra strony">
+        <span class="brand-mark">KSLN</span>
+        <span>Kon-Sti-La-Na</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#sceny">Sceny</a>
+        <a href="#plan">Plan dnia</a>
+        <a href="#ekipa">Ekipa</a>
+        <a href="#checklisty">Checklisty</a>
+        <a href="#montaz">Montaż</a>
+      </div>
+    </nav>
+
+    <section class="hero-grid">
+      <div>
+        <p class="eyebrow">Dokumentacja produkcyjna / GitHub Pages</p>
+        <h1>Teledysk jako rytualna wyprawa do betonowego królestwa Cybana.</h1>
+        <p class="lead">
+          Interaktywny plan klipu do <strong>„Kon-Sti-La-Na”</strong>: sceny z piosenki,
+          ujęcia, zadania Mańka, opcjonalne role Olki i Luny, bezpieczeństwo oraz montaż.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#sceny">Otwórz sceny</a>
+          <a class="button ghost" href="#checklisty">Checklisty</a>
+          <button class="button ghost" type="button" id="replayIntroButton">Intro</button>
+          <button class="button ghost" type="button" id="printButton">Drukuj / PDF</button>
+        </div>
+      </div>
+      <aside class="manifesto" aria-label="Manifest klipu">
+        <p>Nie ma tu tronu.</p>
+        <p>Jest parapet i wiatr.</p>
+        <p>Beton zamiast pałacu.</p>
+        <p>Szczęście o smaku szkła.</p>
+        <p class="signature">Bez werdyktu. Bez ocen. Bez dram.</p>
+      </aside>
+    </section>
+  </header>
+
+  <main>
+    <section class="section overview" aria-labelledby="overviewTitle">
+      <div class="section-heading">
+        <p class="eyebrow">Założenie</p>
+        <h2 id="overviewTitle">Czym ma być ten klip?</h2>
+      </div>
+      <div class="cards three">
+        <article class="card">
+          <h3>Brudna pocztówka z pustostanu</h3>
+          <p>Konstilana nie jest tylko tłem. Ma działać jak osobna lokacja z gry: arena, azyl i memiczna świątynia jednocześnie.</p>
+        </article>
+        <article class="card">
+          <h3>Kontrolowany chaos</h3>
+          <p>Glitch, VHS, szybkie cięcia i głupkowate momenty, ale najważniejsze emocjonalne linie zostają spokojne i czytelne.</p>
+        </article>
+        <article class="card warning-card">
+          <h3>BHP wygrywa z kadrem</h3>
+          <p>Dachy, dziury, szkło i niestabilne schody nie są warte ujęcia. Konstilana ma wyglądać groźnie, nie realnie kasować ekipę.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section progress-panel" aria-labelledby="progressTitle">
+      <div>
+        <p class="eyebrow">Postęp produkcji</p>
+        <h2 id="progressTitle">Odznaczaj ujęcia w trakcie przygotowań i nagrań</h2>
+      </div>
+      <div class="progress-wrap" aria-live="polite">
+        <div class="progress-meta">
+          <span id="progressLabel">0% gotowe</span>
+          <span id="progressCount">0 / 0</span>
+        </div>
+        <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span id="progressFill"></span>
+        </div>
+      </div>
+      <div class="tool-row">
+        <button class="button small" type="button" id="exportButton">Eksportuj postęp</button>
+        <button class="button small danger" type="button" id="resetButton">Wyczyść odhaczenia</button>
+      </div>
+    </section>
+
+    <section class="section" id="sceny" aria-labelledby="scenesTitle">
+      <div class="section-heading wide">
+        <p class="eyebrow">Mapa piosenki</p>
+        <h2 id="scenesTitle">Sceny według fragmentów utworu</h2>
+        <p>Filtruj po części piosenki albo po osobach. Karty można rozwijać, a kluczowe ujęcia odznaczać.</p>
+      </div>
+
+      <div class="controls" aria-label="Filtry scen">
+        <label class="search-label" for="searchInput">Szukaj</label>
+        <input id="searchInput" type="search" placeholder="np. parapet, Luna, Cybek Meteo, refren…" />
+        <div class="filter-row" id="filterRow" aria-label="Przyciski filtrów"></div>
+      </div>
+
+      <div class="scene-grid" id="sceneGrid"></div>
+    </section>
+
+    <section class="section" id="plan" aria-labelledby="planTitle">
+      <div class="section-heading wide">
+        <p class="eyebrow">Logistyka</p>
+        <h2 id="planTitle">Plan dnia nagrań</h2>
+        <p>Kolejność jest ustawiona tak, żeby najpierw zgarnąć ujęcia lokacji, potem performance, a na końcu outro i ewentualne domknięcia.</p>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section" id="ekipa" aria-labelledby="crewTitle">
+      <div class="section-heading wide">
+        <p class="eyebrow">Role</p>
+        <h2 id="crewTitle">Zadania dla ekipy</h2>
+        <p>Mały skład, więc każdy ma dwie funkcje: techniczną i ekranową. Luna ma trzecią: wygrać z planem zdjęciowym.</p>
+      </div>
+      <div class="crew-grid" id="crewGrid"></div>
+    </section>
+
+    <section class="section" id="checklisty" aria-labelledby="checklistTitle">
+      <div class="section-heading wide">
+        <p class="eyebrow">Do odhaczenia</p>
+        <h2 id="checklistTitle">Checklisty produkcyjne</h2>
+        <p>Stan checklist zapisuje się lokalnie w przeglądarce. Po odświeżeniu strony odhaczenia powinny zostać.</p>
+      </div>
+      <div class="checklist-grid" id="checklistGrid"></div>
+    </section>
+
+    <section class="section" id="montaz" aria-labelledby="editTitle">
+      <div class="section-heading wide">
+        <p class="eyebrow">Postprodukcja</p>
+        <h2 id="editTitle">Notatki montażowe</h2>
+      </div>
+      <div class="edit-grid">
+        <article class="card">
+          <h3>Refreny</h3>
+          <p>Szybkie cięcia, glitch stutters, gang-vocale, sylabiczne zoomy i napisy: <code>KON-STI-LA-NA</code>, <code>CYBUCH</code>, <code>Z DOMU KOMETA</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Zwrotki</h3>
+          <p>Więcej obserwacji i chodzenia. Kamera pokazuje przestrzeń, wejścia, schody, detale rdzy, okna i ślady miasta.</p>
+        </article>
+        <article class="card">
+          <h3>Bridge</h3>
+          <p>Telefoniczny, bliski, trochę jak piracka prognoza pogody z końca świata. <strong>Cybek Meteo</strong> ma być absurdalny, ale czytelny.</p>
+        </article>
+        <article class="card">
+          <h3>Outro</h3>
+          <p>Mniej efektów, więcej powietrza. Wyjście, zmęczenie, spokój, czarny ekran i finalne <strong>klik</strong>.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Kon-Sti-La-Na</strong> — interaktywna dokumentacja klipu.</p>
+    <p>Hostowalne jako statyczna strona na GitHub Pages. Bez backendu, bez builda, bez ceregieli.</p>
+  </footer>
+
+  <aside class="audio-widget" id="audioWidget" aria-labelledby="audioWidgetTitle">
+    <div class="audio-widget-head">
+      <div>
+        <p class="audio-widget-kicker">Piosenka</p>
+        <h2 id="audioWidgetTitle">Historia o Cybanie</h2>
+      </div>
+      <button class="audio-widget-toggle" type="button" id="audioWidgetToggle" aria-expanded="true" aria-controls="audioWidgetBody">
+        Zwiń
+      </button>
+    </div>
+    <div class="audio-widget-body" id="audioWidgetBody">
+      <p>Wormhole (Reksio i Wechikuł Czasu)</p>
+      <audio controls preload="metadata">
+        <source src="assets/Historia o Cybanie – Wormhole (Reksio i Wechikuł Czasu).mp3" type="audio/mpeg" />
+        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+      </audio>
+    </div>
+  </aside>
+
+  <template id="sceneTemplate">
+    <article class="scene-card card">
+      <button class="scene-head" type="button" aria-expanded="false">
+        <span>
+          <small class="scene-part"></small>
+          <strong class="scene-title"></strong>
+        </span>
+        <span class="chevron">⌄</span>
+      </button>
+      <div class="scene-body" hidden>
+        <p class="scene-quote"></p>
+        <p class="scene-description"></p>
+        <div class="tag-list"></div>
+        <div class="shot-list"></div>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
