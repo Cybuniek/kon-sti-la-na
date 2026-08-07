@@ -861,6 +861,240 @@ h3 {
   font-weight: 900;
 }
 
+.planner-shell {
+  display: grid;
+  gap: 18px;
+}
+
+.planner-tabs,
+.planner-actions,
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.planner-tab,
+.text-button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 13px;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.planner-tab.is-active {
+  color: #120e0a;
+  border-color: var(--accent);
+  background: var(--accent);
+  font-weight: 800;
+}
+
+.planner-panel,
+.connection-map {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(27, 27, 34, 0.66);
+}
+
+.planner-panel > :first-child,
+.connection-map > :first-child {
+  margin-top: 0;
+}
+
+.planner-status {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--good);
+}
+
+.planner-status.is-error {
+  color: var(--danger);
+}
+
+.planner-field {
+  display: block;
+  margin: 14px 0 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.planner-input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.signup-task-list,
+.stage-tasks,
+.request-list {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.signup-task,
+.plan-task,
+.request-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.signup-task {
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.signup-task input {
+  margin-top: 5px;
+  accent-color: var(--accent);
+}
+
+.signup-task small,
+.plan-task small,
+.request-item small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.plan-task p {
+  margin: 6px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.stage-card {
+  padding: 20px;
+}
+
+.stage-heading {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.stage-heading h3 {
+  margin: 0;
+}
+
+.stage-heading p {
+  margin: 5px 0 14px;
+  color: var(--muted);
+}
+
+.text-button {
+  padding: 6px 9px;
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.danger-text {
+  color: var(--danger);
+}
+
+.task-form {
+  margin-top: 20px;
+  padding-top: 4px;
+}
+
+.planner-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 14px 0;
+  color: var(--muted);
+}
+
+.move-request {
+  max-width: 180px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  background: var(--panel-strong);
+}
+
+.node-map {
+  display: grid;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.node {
+  position: relative;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.stage-node {
+  width: min(100%, 360px);
+  justify-self: center;
+  color: #120e0a;
+  border-color: var(--accent);
+  background: var(--accent);
+  font-weight: 800;
+}
+
+.node-branches {
+  display: grid;
+  gap: 14px;
+  border-top: 2px solid rgba(240, 177, 62, 0.46);
+  padding-top: 16px;
+}
+
+.node-branch {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.35fr) minmax(0, 0.65fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.person-nodes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.person-nodes::before {
+  content: "→";
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.node-empty {
+  color: var(--dim);
+  font-size: 0.86rem;
+}
+
+.task-node {
+  border-color: rgba(240, 177, 62, 0.5);
+}
+
+.person-node {
+  border-color: rgba(138, 214, 109, 0.56);
+}
+
+.person-node.is-pending {
+  border-style: dashed;
+  border-color: var(--accent-2);
+}
+
 .timeline-card ul,
 .crew-card ul {
   margin: 12px 0 0;
@@ -1004,6 +1238,18 @@ h3 {
 }
 
 @media (max-width: 720px) {
+  .signup-task,
+  .plan-task,
+  .request-item,
+  .stage-heading {
+    flex-direction: column;
+  }
+
+  .node-branch {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
   .intro-stage {
     min-height: 78vh;
     border-radius: 22px;

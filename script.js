@@ -1,5 +1,6 @@
 const STORAGE_KEY = "konstilana-progress-v1";
 const AUDIO_WIDGET_KEY = "konstilana-audio-widget-collapsed";
+const PLAN_STORAGE_KEY = "konstilana-open-day-plan-v1";
 
 const filters = [
   { id: "all", label: "Wszystko" },
@@ -8,10 +9,11 @@ const filters = [
   { id: "zwrotka", label: "Zwrotki" },
   { id: "bridge", label: "Bridge" },
   { id: "outro", label: "Outro" },
-  { id: "cybus", label: "Cybuś" },
-  { id: "maniek", label: "Maniek" },
-  { id: "olka", label: "Olka" },
-  { id: "luna", label: "Luna" },
+  { id: "performance", label: "Performance" },
+  { id: "kamera", label: "Kamera" },
+  { id: "backstage", label: "Backstage" },
+  { id: "logistyka", label: "Logistyka" },
+  { id: "zwierze", label: "Opieka nad zwierzęciem" },
   { id: "bhp", label: "BHP" }
 ];
 
@@ -21,8 +23,8 @@ const scenes = [
     part: "Intro",
     title: "Konstilana jako mapa startowa",
     quote: "Kon-sti, Kon-sti, la-la-la-na / Ust-nik, Ust-nik, Cy-buch",
-    description: "Szybkie establishing shoty: fasada, okna, rdza, wejście, Cybuś pojawiający się jak gracz na początku levelu.",
-    tags: ["intro", "cybus"],
+    description: "Szybkie establishing shoty: fasada, okna, rdza, wejście i osoba performująca pojawiająca się jak gracz na początku levelu.",
+    tags: ["intro", "performance"],
     shots: [
       "Budynek z daleka, najlepiej z dojściem Cybka w kadrze.",
       "Detale: wybite okna, łańcuch, drzwi, ściany, rdza.",
@@ -34,25 +36,25 @@ const scenes = [
     part: "Refren",
     title: "Król wybitych okien",
     quote: "Ustnik Cybuch siedzi sobie, król wybitych okien.",
-    description: "Najbardziej ikoniczny performance shot. Cybuś centralnie, z ruiną za plecami, jak monarcha bez pałacu, ale z pełnym lore.",
-    tags: ["refren", "cybus", "maniek"],
+    description: "Najbardziej ikoniczny performance shot. Główna osoba centralnie, z ruiną za plecami i pełną energią.",
+    tags: ["refren", "performance", "kamera"],
     shots: [
-      "Cybuś rapuje refren do kamery w najładniejszym miejscu lokacji.",
+      "Główna osoba wykonuje refren do kamery w najładniejszym miejscu lokacji.",
       "Szeroki kadr: mała postać w wielkim pustostanie.",
-      "Maniek jako hype-man na okrzyki Kon-Sti-La-Na."
+      "Druga osoba wspiera call-and-response poza głównym kadrem."
     ]
   },
   {
     id: "zwrotka-wejscie",
     part: "Zwrotka 1",
     title: "Wejście do betonowego azylu",
-    quote: "Idzie bez pośpiechu, i o jednym Cybek śni…",
+    quote: "Idzie bez pośpiechu — początek spokojnej drogi przez lokację.",
     description: "Chodzone ujęcia bez pośpiechu: korytarz, wejście, ściany, długi spacer przez budynek. Klimat bardziej narracyjny niż koncertowy.",
-    tags: ["zwrotka", "cybus"],
+    tags: ["zwrotka", "performance"],
     shots: [
-      "Cybuś wchodzi do budynku zza pleców operatora.",
+      "Osoba performująca wchodzi do budynku zza pleców operatora.",
       "Długie przejście korytarzem z lekkim trzęsieniem kamery.",
-      "Cybuś ogląda przestrzeń, jakby wracał do znajomego miejsca."
+      "Osoba performująca ogląda przestrzeń, jakby wracała do znajomego miejsca."
     ]
   },
   {
@@ -74,11 +76,11 @@ const scenes = [
     title: "Dywanik BHP",
     quote: "Dokumenty po podłodze walają wszędzie się, trochę jak dywanik, tylko bardziej BHP.",
     description: "Detaliczny przegląd syfu: papiery, schody, rdza, ślady czasu. Humor ma iść razem z ostrzeżeniem: niczego podejrzanego nie dotykać.",
-    tags: ["bhp", "zwrotka", "maniek"],
+    tags: ["bhp", "zwrotka", "kamera"],
     shots: [
       "Zbliżenia na papiery, śmieci i rdzę.",
-      "Cybuś pokazuje podłogę jak prezenter wystroju wnętrz.",
-      "Maniek sprawdza drogę i odcina głupie pomysły."
+      "Osoba performująca pokazuje podłogę jak prezenter wystroju wnętrz.",
+      "Osoba od BHP sprawdza drogę i odcina ryzykowne pomysły."
     ]
   },
   {
@@ -86,10 +88,10 @@ const scenes = [
     part: "Build Up",
     title: "Wejście dnia",
     quote: "Cybuch z domu Kometa zaraz robi wejście dnia.",
-    description: "Moment narastania. Cybuś idzie w stronę kamery, najlepiej przez framugę albo korytarz. Na drop wchodzi refren.",
-    tags: ["refren", "cybus", "maniek"],
+    description: "Moment narastania. Osoba performująca idzie w stronę kamery przez framugę albo korytarz. Na drop wchodzi refren.",
+    tags: ["refren", "performance", "kamera"],
     shots: [
-      "Niski kąt: Cybuś idzie prosto na kamerę.",
+      "Niski kąt: osoba performująca idzie prosto na kamerę.",
       "Szybkie przebitki: okno, schody, twarz, dym, buty.",
       "Wejście przez drzwi lub framugę zsynchronizowane z build-upem."
     ]
@@ -99,10 +101,10 @@ const scenes = [
     part: "Refren 2",
     title: "Parapet zamiast tronu",
     quote: "Nie ma tu tronu, jest parapet i wiatr.",
-    description: "Obowiązkowy symbol klipu. Cybuś siedzi przy oknie/parapecie i patrzy na lokację jak na własne królestwo.",
-    tags: ["refren", "cybus", "bhp"],
+    description: "Obowiązkowy symbol klipu. Osoba performująca siedzi przy bezpiecznym oknie i patrzy na lokację.",
+    tags: ["refren", "performance", "bhp"],
     shots: [
-      "Cybuś siedzi przy bezpiecznym oknie albo na stabilnym miejscu obok parapetu.",
+      "Osoba performująca siedzi przy bezpiecznym oknie albo na stabilnym miejscu obok parapetu.",
       "Wiatr porusza kapturem/bluzą/dymem.",
       "Detal betonu i szkła bez dotykania ostrych elementów."
     ]
@@ -113,10 +115,10 @@ const scenes = [
     title: "Widoczek magnifique",
     quote: "Ptaki cały dach obsrały już: myk, pyk, cyk, fik.",
     description: "Głupkowate przebitki detali i mimika Cybka. To może być najlżejszy, najbardziej memiczny fragment klipu.",
-    tags: ["refren", "cybus"],
+    tags: ["refren", "performance"],
     shots: [
       "Detal dachu, parapetu albo śladów ptaków, jeśli są.",
-      "Cybuś zachwycony widoczkiem w stylu ma-ni-fiq.",
+      "Naturalna reakcja na widoczek w lekkim, memicznym stylu.",
       "Krótki zoom na reakcję Mańka."
     ]
   },
@@ -125,10 +127,10 @@ const scenes = [
     part: "Zwrotka 2",
     title: "Dymowy szlak w mlecznych oknach",
     quote: "W mlecznych oknach rysuje się dymowy szlak.",
-    description: "Druga zwrotka powinna być mniej biegana, bardziej siedząca i zawieszona. Czas krzywo płynie, Cybuś już nie musi nic.",
-    tags: ["zwrotka", "cybus"],
+    description: "Druga zwrotka powinna być mniej biegana, bardziej siedząca i zawieszona. Czas krzywo płynie, bez zbędnego ruchu.",
+    tags: ["zwrotka", "performance"],
     shots: [
-      "Cybuś siedzi nieruchomo na tle okien.",
+      "Osoba performująca siedzi nieruchomo na tle okien.",
       "Dym albo oddech/światło tworzy ślad w kadrze.",
       "Patrzenie przez okno na drzewa — spokojne, bez wygłupu."
     ]
@@ -152,10 +154,10 @@ const scenes = [
     title: "Pustostan jako powrót do siebie",
     quote: "Czasem człowiek wraca do siebie przez pustostan.",
     description: "Najbardziej szczery moment. Minimalny ruch, bliska kamera, mało efektów. Przez chwilę teledysk przestaje się śmiać.",
-    tags: ["zwrotka", "cybus"],
+    tags: ["zwrotka", "performance"],
     shots: [
       "Close-up Cybka bez uśmiechu i bez memicznej miny.",
-      "Cybuś odkłada telefon albo przestaje patrzeć w ekran.",
+      "Osoba performująca odkłada telefon albo przestaje patrzeć w ekran.",
       "Cichy kadr przez okno, możliwie z drzewami albo chmurami."
     ]
   },
@@ -164,24 +166,24 @@ const scenes = [
     part: "Refren 3",
     title: "Chór pustostanu",
     quote: "Cy-buch! Cy-buch! / Ko-me-ta!",
-    description: "Najbardziej wspólnotowy refren. Maniek i opcjonalnie Olka robią call-and-response. Luna może wejść jako strażniczka ruin.",
-    tags: ["refren", "maniek", "olka", "luna", "cybus"],
+    description: "Najbardziej wspólnotowy refren. Otwarta ekipa robi call-and-response, a zwierzę może pojawić się wyłącznie w spokojnej strefie.",
+    tags: ["refren", "performance", "kamera", "backstage", "zwierze"],
     shots: [
-      "Maniek i Cybuś krzyczą gang-vocale do kamery.",
-      "Olka jako świadek/kontrast/reakcja, jeśli będzie.",
-      "Luna tylko w bezpiecznej strefie: przy wejściu albo na czystym korytarzu."
+      "Dwie osoby robią gang-vocale do kamery.",
+      "Backstage łapie naturalne reakcje, jeśli jest obsada.",
+      "Zwierzę tylko w bezpiecznej strefie: przy wejściu albo na czystym korytarzu."
     ]
   },
   {
-    id: "cybek-meteo",
+    id: "meteo",
     part: "Bridge",
-    title: "Cybek Meteo",
-    quote: "Tutaj Cybek Meteo, pogoda: ja pierdolę.",
-    description: "Piracka prognoza pogody z końca świata. Cybuś mówi close-mic do kamery, jak prezenter, który już widział wszystko.",
-    tags: ["bridge", "cybus"],
+    title: "Meteo z końca świata",
+    quote: "Piracka prognoza pogody z końca świata.",
+    description: "Krótka prognoza close-mic do kamery, jak od prezentera, który już widział wszystko.",
+    tags: ["bridge", "performance"],
     shots: [
-      "Cybuś stoi przy oknie i pokazuje front atmosferyczny na ścianie.",
-      "Napis ekranowy: CYBEK METEO.",
+      "Osoba performująca stoi przy oknie i pokazuje front atmosferyczny na ścianie.",
+      "Napis ekranowy: METEO.",
       "Po ciszy bliski kadr: I to wystarczy."
     ]
   },
@@ -190,8 +192,8 @@ const scenes = [
     part: "Instrumental Break",
     title: "Glitchowy przelot przez lokację",
     quote: "kon-sti, kon-sti, la-la-la-na / Cybuch, Cybuch, z domu Kometa",
-    description: "Materiał montażowy: schody, twarze, buty, dym, ściany, Luna, Maniek, szybkie obroty i brutalne cięcia pod breakbeat.",
-    tags: ["refren", "maniek", "olka", "luna", "cybus"],
+    description: "Materiał montażowy: schody, twarze, buty, dym, ściany, ekipa, szybkie obroty i brutalne cięcia pod breakbeat.",
+    tags: ["refren", "performance", "kamera", "backstage", "zwierze"],
     shots: [
       "Krótkie 2–4 sekundowe przebitki wszystkiego, co ma teksturę.",
       "Trzęsąca kamera i szybkie ruchy, ale bez wchodzenia w niebezpieczne miejsca.",
@@ -204,7 +206,7 @@ const scenes = [
     title: "Finalne koronowanie Cybana",
     quote: "Kon-Sti-La-La-Na, Ko-Ko-Ko-Kon-Sti-La-Na!",
     description: "Największy refren. Najlepsze ujęcia, najwięcej energii, najbardziej czytelny obraz Cybka jako króla betonu i szkła.",
-    tags: ["refren", "cybus", "maniek", "olka", "luna"],
+    tags: ["refren", "performance", "kamera", "backstage", "zwierze"],
     shots: [
       "Szeroki kadr całej lokacji z Cybkiem w centrum.",
       "Sylabiczne cięcia: Kon / Sti / La / Na na różne detale.",
@@ -216,10 +218,10 @@ const scenes = [
     part: "Outro",
     title: "Wyjście bez dram",
     quote: "Bez werdyktu. Bez ocen. Bez dram. / klik",
-    description: "Spokojne opuszczenie lokacji. Mniej efektów, więcej oddechu. Budynek zostaje sam, a Cybuś kończy szczęśliwy.",
-    tags: ["outro", "cybus", "maniek", "olka", "luna"],
+    description: "Spokojne opuszczenie lokacji. Mniej efektów, więcej oddechu. Budynek zostaje sam, a ekipa kończy z poczuciem domknięcia.",
+    tags: ["outro", "performance", "kamera", "backstage", "zwierze"],
     shots: [
-      "Cybuś patrzy ostatni raz na Konstilanę.",
+      "Osoba performująca patrzy ostatni raz na lokację.",
       "Ekipa wychodzi, budynek zostaje pusty.",
       "Czarny ekran i odcięcie obrazu na klik."
     ]
@@ -236,8 +238,8 @@ const timeline = [
   {
     time: "Etap 1",
     title: "Dojście i zewnętrzne establishing shoty",
-    text: "Fasada, komin, wejście, Cybuś pod budynkiem, pierwsze wejście w klimat.",
-    items: ["Budynek z daleka", "Detale okien i drzwi", "Cybuś idący do Konstilany"]
+    text: "Fasada, komin, wejście i pierwsze wejście w klimat.",
+    items: ["Budynek z daleka", "Detale okien i drzwi", "Osoba performująca idąca do lokacji"]
   },
   {
     time: "Etap 2",
@@ -248,14 +250,14 @@ const timeline = [
   {
     time: "Etap 3",
     title: "Główne performance shoty Cybka",
-    text: "Refreny, wejście dnia, Cybek Meteo i najważniejsza linia o powrocie do siebie przez pustostan.",
+    text: "Refreny, wejście dnia, meteo i najważniejsza linia o powrocie do siebie przez pustostan.",
     items: ["Refren przy oknach", "Bridge blisko kamery", "Finalny refren z największą energią"]
   },
   {
     time: "Etap 4",
     title: "Ekipa, reakcje i gang-vocale",
-    text: "Maniek jako hype-man, Olka jako świadek, Luna jako strażniczka ruin — tylko w bezpiecznych strefach.",
-    items: ["Call-response", "Śmiech i backstage", "Luna bez szkła, dziur i hałasu"]
+    text: "Otwarta ekipa przy call-and-response i backstage — tylko w bezpiecznych strefach.",
+    items: ["Call-response", "Śmiech i backstage", "Zwierzę bez szkła, dziur i hałasu"]
   },
   {
     time: "Etap 5",
@@ -266,30 +268,10 @@ const timeline = [
 ];
 
 const crew = [
-  {
-    name: "Cybuś",
-    role: "główny byt",
-    intro: "Narrator, król wybitych okien, człowiek robiący z pustostanu prywatne królestwo.",
-    tasks: ["Rapuje główne fragmenty", "Siedzi przy oknie/parapecie", "Robi Cybek Meteo", "W momentach szczerych przestaje robić miny"]
-  },
-  {
-    name: "Maniek",
-    role: "operator / hype-man",
-    intro: "Drugi mózg BHP, kamera pomocnicza i człowiek od gang-vocali.",
-    tasks: ["Nagrywa Cybka", "Pilnuje światła i kadru", "Krzyczy Kon-Sti-La-Na / Cy-buch / Ko-me-ta", "Odcina pomysły typu: super kadr, tylko strop odpada"]
-  },
-  {
-    name: "Olka",
-    role: "opcjonalnie",
-    intro: "Świadek wyprawy, backstage, reakcje i spokojniejszy kontrast dla Cybanowego obrządku.",
-    tasks: ["Nagrywa backstage telefonem", "Pojawia się w refrenach", "Reaguje naturalnie na absurd", "Pomaga z Luną, jeśli Luna idzie"]
-  },
-  {
-    name: "Luna",
-    role: "strażniczka",
-    intro: "Nie gra. Jest Luną. Jeśli nie chce, nie kręcimy Luny. Pies wygrywa z planem zdjęciowym.",
-    tasks: ["Bezpieczne ujęcie przy wejściu", "Krótki spacer po czystej strefie", "Spojrzenie w kamerę", "Zero szkła, dziur, metalu i stresu"]
-  }
+  { name: "Performance", role: "w kadrze", intro: "Osoba wspierająca energię i główne ujęcia.", tasks: ["Playback i rytm", "Wejścia do kadru", "Naturalne reakcje"] },
+  { name: "Kamera", role: "technicznie", intro: "Osoba od kadru, baterii i spokojnego prowadzenia ujęć.", tasks: ["Kadrowanie", "Sprawdzenie pamięci", "Bezpieczny ruch kamery"] },
+  { name: "Backstage", role: "dokumentacja", intro: "Osoba od krótkich przebitek i przebiegu dnia.", tasks: ["Reakcje ekipy", "Przebitki", "Notatki do montażu"] },
+  { name: "BHP i logistyka", role: "bezpieczeństwo", intro: "Osoba, która może zatrzymać ryzykowny pomysł.", tasks: ["Bezpieczne strefy", "Woda i światło", "Wspólne wyjście"] }
 ];
 
 const checklists = [
@@ -303,7 +285,7 @@ const checklists = [
       "Głośnik bluetooth",
       "Latarka + zapas światła",
       "Woda dla ludzi",
-      "Woda dla Luny, jeśli idzie",
+      "Woda dla zwierzęcia, jeśli idzie",
       "Rękawiczki robocze",
       "Apteczka minimum"
     ]
@@ -312,11 +294,11 @@ const checklists = [
     title: "Ujęcia obowiązkowe",
     items: [
       "Budynek z zewnątrz",
-      "Cybuś wchodzący do Konstilany",
+      "Osoba performująca wchodząca do lokacji",
       "Refren przy wybitych oknach",
-      "Cybuś przy parapecie / oknie",
+      "Osoba performująca przy parapecie / oknie",
       "Detale rdzy, szkła, schodów, papierów, graffiti",
-      "Cybek Meteo",
+      "Meteo z końca świata",
       "Linia: Czasem człowiek wraca do siebie przez pustostan",
       "Finalny refren z ekipą",
       "Wyjście z budynku",
@@ -333,7 +315,7 @@ const checklists = [
       "Nie rozpalać ognia",
       "Nie niszczyć lokacji",
       "Nie zostawiać śmieci",
-      "Luna nie wchodzi w szkło, dziury i metal"
+      "Zwierzę nie wchodzi w szkło, dziury i metal"
     ]
   },
   {
@@ -351,6 +333,8 @@ const checklists = [
 ];
 
 let state = loadState();
+let dayPlan = loadDayPlan();
+let plannerMode = "join";
 let activeFilter = "all";
 let searchTerm = "";
 
@@ -358,7 +342,6 @@ const sceneGrid = document.querySelector("#sceneGrid");
 const sceneTemplate = document.querySelector("#sceneTemplate");
 const filterRow = document.querySelector("#filterRow");
 const searchInput = document.querySelector("#searchInput");
-const timelineEl = document.querySelector("#timeline");
 const crewGrid = document.querySelector("#crewGrid");
 const checklistGrid = document.querySelector("#checklistGrid");
 const progressFill = document.querySelector("#progressFill");
@@ -370,6 +353,15 @@ const introSkipButton = document.querySelector("#introSkipButton");
 const replayIntroButton = document.querySelector("#replayIntroButton");
 const audioWidget = document.querySelector("#audioWidget");
 const audioWidgetToggle = document.querySelector("#audioWidgetToggle");
+const joinTab = document.querySelector("#joinTab");
+const coordinateTab = document.querySelector("#coordinateTab");
+const joinPanel = document.querySelector("#joinPanel");
+const coordinatePanel = document.querySelector("#coordinatePanel");
+const plannerStatus = document.querySelector("#plannerStatus");
+const signupTaskList = document.querySelector("#signupTaskList");
+const planBoard = document.querySelector("#planBoard");
+const connectionMap = document.querySelector("#connectionMap");
+const requestList = document.querySelector("#requestList");
 
 let introCloseTimer;
 let introPreviousFocus;
@@ -379,7 +371,7 @@ init();
 function init() {
   renderFilters();
   renderScenes();
-  renderTimeline();
+  renderPlanner();
   renderCrew();
   renderChecklists();
   updateProgress();
@@ -410,6 +402,13 @@ function bindGlobalActions() {
     navLinks.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
   });
+
+  joinTab.addEventListener("click", () => setPlannerMode("join"));
+  coordinateTab.addEventListener("click", () => setPlannerMode("coordinate"));
+  document.querySelector("#exportSignupButton").addEventListener("click", exportSignup);
+  document.querySelector("#exportPlanButton").addEventListener("click", exportDayPlan);
+  document.querySelector("#plannerImport").addEventListener("change", importPlannerFile);
+  document.querySelector("#taskForm").addEventListener("submit", addTask);
 }
 
 function setupIntroAnimation() {
@@ -539,23 +538,6 @@ function matchesSceneFilters(scene) {
   return filterMatch && searchMatch;
 }
 
-function renderTimeline() {
-  timelineEl.innerHTML = "";
-  timeline.forEach((step) => {
-    const article = document.createElement("article");
-    article.className = "timeline-card";
-    article.innerHTML = `
-      <div><span class="timeline-time">${escapeHtml(step.time)}</span></div>
-      <div>
-        <h3>${escapeHtml(step.title)}</h3>
-        <p>${escapeHtml(step.text)}</p>
-        <ul>${step.items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      </div>
-    `;
-    timelineEl.append(article);
-  });
-}
-
 function renderCrew() {
   crewGrid.innerHTML = "";
   crew.forEach((member) => {
@@ -662,6 +644,336 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function loadDayPlan() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(PLAN_STORAGE_KEY));
+    const validation = PlannerCore.validateImportPayload(stored);
+    return validation.ok && validation.kind === "day-plan" ? stored : PlannerCore.createDefaultPlan();
+  } catch {
+    return PlannerCore.createDefaultPlan();
+  }
+}
+
+function saveDayPlan() {
+  localStorage.setItem(PLAN_STORAGE_KEY, JSON.stringify(dayPlan));
+}
+
+function setPlannerMode(mode) {
+  plannerMode = mode;
+  const isCoordinator = mode === "coordinate";
+  joinTab.classList.toggle("is-active", !isCoordinator);
+  coordinateTab.classList.toggle("is-active", isCoordinator);
+  joinTab.setAttribute("aria-selected", String(!isCoordinator));
+  coordinateTab.setAttribute("aria-selected", String(isCoordinator));
+  joinPanel.hidden = isCoordinator;
+  coordinatePanel.hidden = !isCoordinator;
+  renderPlanner();
+}
+
+function renderPlanner() {
+  renderSignupTasks();
+  renderPlanBoard();
+  renderCoordinatorControls();
+}
+
+function renderSignupTasks() {
+  signupTaskList.innerHTML = "";
+  dayPlan.tasks.forEach((task) => {
+    const available = PlannerCore.taskAvailability(dayPlan, task.id);
+    const label = document.createElement("label");
+    label.className = "signup-task";
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = task.id;
+    input.disabled = available === 0;
+    const content = document.createElement("span");
+    content.innerHTML = `<strong>${escapeHtml(task.title)}</strong><small>${escapeHtml(task.role)} · ${available} wolne ${available === 1 ? "miejsce" : "miejsca"}${task.safety ? " · BHP" : ""}</small>`;
+    label.append(input, content);
+    signupTaskList.append(label);
+  });
+}
+
+function renderPlanBoard() {
+  planBoard.innerHTML = "";
+  dayPlan.stages.forEach((stage) => {
+    const stageEl = document.createElement("article");
+    stageEl.className = "stage-card card";
+    const heading = document.createElement("div");
+    heading.className = "stage-heading";
+    heading.innerHTML = `<span class="timeline-time">${escapeHtml(stage.time)}</span><div><h3>${escapeHtml(stage.title)}</h3><p>${escapeHtml(stage.text)}</p></div>`;
+    const tasks = document.createElement("div");
+    tasks.className = "stage-tasks";
+    dayPlan.tasks.filter((task) => task.stageId === stage.id).forEach((task) => {
+      const available = PlannerCore.taskAvailability(dayPlan, task.id);
+      const taskEl = document.createElement("div");
+      taskEl.className = "plan-task";
+      const text = document.createElement("div");
+      const confirmed = dayPlan.requests.filter((request) => request.taskId === task.id && request.status === "confirmed");
+      const people = plannerMode === "coordinate"
+        ? confirmed.map((request) => dayPlan.people.find((person) => person.id === request.personId)?.name).filter(Boolean).join(", ")
+        : "";
+      text.innerHTML = `<strong>${escapeHtml(task.title)}</strong><p>${escapeHtml(task.description)}</p><small>${escapeHtml(task.role)} · ${available} wolne ${available === 1 ? "miejsce" : "miejsca"}${task.safety ? " · BHP" : ""}${people ? ` · obsada: ${escapeHtml(people)}` : ""}</small>`;
+      const actions = document.createElement("div");
+      actions.className = "task-actions";
+      const mapButton = document.createElement("button");
+      mapButton.type = "button";
+      mapButton.className = "text-button";
+      mapButton.textContent = "Połączenia";
+      mapButton.addEventListener("click", () => renderConnectionMap(stage.id));
+      actions.append(mapButton);
+      if (plannerMode === "coordinate") {
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.className = "text-button";
+        editButton.textContent = "Edytuj";
+        editButton.addEventListener("click", () => editTask(task.id));
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.className = "text-button danger-text";
+        deleteButton.textContent = "Usuń";
+        deleteButton.addEventListener("click", () => deleteTask(task.id));
+        actions.append(editButton, deleteButton);
+      }
+      taskEl.append(text, actions);
+      tasks.append(taskEl);
+    });
+    stageEl.append(heading, tasks);
+    planBoard.append(stageEl);
+  });
+}
+
+function renderCoordinatorControls() {
+  const stageSelect = document.querySelector("#taskStage");
+  stageSelect.innerHTML = "";
+  dayPlan.stages.forEach((stage) => {
+    const option = document.createElement("option");
+    option.value = stage.id;
+    option.textContent = stage.title;
+    stageSelect.append(option);
+  });
+  requestList.innerHTML = "";
+  const pending = dayPlan.requests.filter((request) => request.status === "pending");
+  const title = document.createElement("h4");
+  title.textContent = pending.length ? `Zgłoszenia oczekujące (${pending.length})` : "Brak zgłoszeń oczekujących";
+  requestList.append(title);
+  pending.forEach((request) => {
+    const task = dayPlan.tasks.find((item) => item.id === request.taskId);
+    const person = dayPlan.people.find((item) => item.id === request.personId);
+    if (!task || !person) return;
+    const item = document.createElement("div");
+    item.className = "request-item";
+    item.innerHTML = `<div><strong>${escapeHtml(person.name)}</strong><small>${escapeHtml(task.title)} · ${escapeHtml(task.role)}</small></div>`;
+    const actions = document.createElement("div");
+    actions.className = "task-actions";
+    const approve = document.createElement("button");
+    approve.type = "button";
+    approve.className = "text-button";
+    approve.textContent = "Akceptuj";
+    approve.addEventListener("click", () => decideRequest(request.id, "approve"));
+    const reject = document.createElement("button");
+    reject.type = "button";
+    reject.className = "text-button danger-text";
+    reject.textContent = "Odrzuć";
+    reject.addEventListener("click", () => decideRequest(request.id, "reject"));
+    const move = document.createElement("select");
+    move.className = "move-request";
+    dayPlan.tasks.forEach((target) => {
+      const option = document.createElement("option");
+      option.value = target.id;
+      option.textContent = target.title;
+      option.selected = target.id === request.taskId;
+      move.append(option);
+    });
+    move.addEventListener("change", () => {
+      PlannerCore.moveSignup(dayPlan, request.id, move.value);
+      saveDayPlan();
+      renderPlanner();
+      setPlannerMessage("Przeniesiono zgłoszenie do wybranego zadania.");
+    });
+    actions.append(approve, reject, move);
+    item.append(actions);
+    requestList.append(item);
+  });
+}
+
+function exportSignup() {
+  const name = document.querySelector("#signupName").value;
+  const taskIds = [...signupTaskList.querySelectorAll("input:checked")].map((input) => input.value);
+  try {
+    const signup = PlannerCore.createSignup(dayPlan, { name, taskIds });
+    downloadJson(signup, "konstilana-zgloszenie.json");
+    setPlannerMessage("Pobrano zgłoszenie. Przekaż plik osobie koordynującej.");
+  } catch (error) {
+    setPlannerMessage(error.message, true);
+  }
+}
+
+function exportDayPlan() {
+  downloadJson({ ...dayPlan, exportedAt: new Date().toISOString() }, "konstilana-plan-dnia.json");
+  setPlannerMessage("Pobrano migawkę lokalnego planu dnia.");
+}
+
+async function importPlannerFile(event) {
+  const file = event.target.files[0];
+  event.target.value = "";
+  if (!file) return;
+  try {
+    const payload = JSON.parse(await file.text());
+    const validation = PlannerCore.validateImportPayload(payload);
+    if (!validation.ok) throw new Error(validation.error);
+    if (validation.kind === "day-plan") {
+      if (!confirm("Zastąpić bieżący lokalny plan zaimportowaną migawką?")) return;
+      dayPlan = payload;
+      saveDayPlan();
+      renderPlanner();
+      setPlannerMessage("Zaimportowano plan dnia.");
+      return;
+    }
+    const result = PlannerCore.importSignup(dayPlan, payload);
+    if (!result.ok) throw new Error(result.error);
+    saveDayPlan();
+    renderPlanner();
+    setPlannerMessage("Zaimportowano zgłoszenie jako oczekujące na decyzję.");
+  } catch (error) {
+    setPlannerMessage(`Nie zaimportowano pliku: ${error.message}`, true);
+  }
+}
+
+function decideRequest(requestId, decision) {
+  const result = decision === "approve" ? PlannerCore.approveSignup(dayPlan, requestId) : PlannerCore.rejectSignup(dayPlan, requestId);
+  if (!result.ok) {
+    setPlannerMessage(result.error, true);
+    return;
+  }
+  saveDayPlan();
+  renderPlanner();
+  setPlannerMessage(decision === "approve" ? "Zgłoszenie zaakceptowane." : "Zgłoszenie odrzucone.");
+}
+
+function addTask(event) {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const data = new FormData(form);
+  const taskId = form.dataset.editingId;
+  const task = {
+    id: taskId || `task-${Date.now()}`,
+    stageId: data.get("taskStage"),
+    title: String(data.get("taskTitle")).trim(),
+    description: String(data.get("taskDescription")).trim(),
+    role: String(data.get("taskRole")).trim(),
+    capacity: Number(data.get("taskCapacity")),
+    safety: data.get("taskSafety") === "on"
+  };
+  if (!task.title || !task.description || !task.role || !Number.isInteger(task.capacity) || task.capacity < 1) {
+    setPlannerMessage("Uzupełnij nazwę, opis, rolę i liczbę miejsc co najmniej 1.", true);
+    return;
+  }
+  const index = dayPlan.tasks.findIndex((item) => item.id === taskId);
+  if (index >= 0) dayPlan.tasks[index] = task;
+  else dayPlan.tasks.push(task);
+  delete form.dataset.editingId;
+  form.reset();
+  saveDayPlan();
+  renderPlanner();
+  setPlannerMessage(index >= 0 ? "Zapisano zmiany zadania." : "Dodano zadanie do planu.");
+}
+
+function editTask(taskId) {
+  const task = dayPlan.tasks.find((item) => item.id === taskId);
+  if (!task) return;
+  const form = document.querySelector("#taskForm");
+  form.dataset.editingId = task.id;
+  document.querySelector("#taskStage").value = task.stageId;
+  document.querySelector("#taskTitle").value = task.title;
+  document.querySelector("#taskDescription").value = task.description;
+  document.querySelector("#taskRole").value = task.role;
+  document.querySelector("#taskCapacity").value = task.capacity;
+  document.querySelector("#taskSafety").checked = task.safety;
+  form.querySelector("button[type=submit]").textContent = "Zapisz zmiany";
+  form.scrollIntoView({ behavior: "smooth", block: "center" });
+}
+
+function deleteTask(taskId) {
+  const hasRequests = dayPlan.requests.some((request) => request.taskId === taskId && request.status !== "rejected");
+  if (hasRequests || !confirm("Usunąć to zadanie z planu?")) return;
+  dayPlan.tasks = dayPlan.tasks.filter((task) => task.id !== taskId);
+  saveDayPlan();
+  renderPlanner();
+  setPlannerMessage("Usunięto zadanie z planu.");
+}
+
+function renderConnectionMap(stageId) {
+  const stage = dayPlan.stages.find((item) => item.id === stageId);
+  const tasks = dayPlan.tasks.filter((task) => task.stageId === stageId);
+  const requests = dayPlan.requests.filter((request) => tasks.some((task) => task.id === request.taskId) && request.status !== "rejected");
+  connectionMap.hidden = false;
+  connectionMap.innerHTML = "";
+  const title = document.createElement("h3");
+  title.textContent = `Połączenia: ${stage.title}`;
+  const hint = document.createElement("p");
+  hint.textContent = "Ciągłe połączenia oznaczają zaakceptowaną obsadę, a przerywane — zgłoszenie oczekujące.";
+  const map = document.createElement("div");
+  map.className = "node-map";
+  const stageNode = document.createElement("div");
+  stageNode.className = "node stage-node";
+  stageNode.textContent = stage.title;
+  map.append(stageNode);
+  const branches = document.createElement("div");
+  branches.className = "node-branches";
+  tasks.forEach((task) => {
+    const branch = document.createElement("div");
+    branch.className = "node-branch";
+    const taskNode = document.createElement("div");
+    taskNode.className = "node task-node";
+    taskNode.textContent = task.title;
+    branch.append(taskNode);
+    const people = document.createElement("div");
+    people.className = "person-nodes";
+    const matching = requests.filter((request) => request.taskId === task.id);
+    if (!matching.length) {
+      const empty = document.createElement("span");
+      empty.className = "node-empty";
+      empty.textContent = "brak zgłoszeń";
+      people.append(empty);
+    }
+    matching.forEach((request) => {
+      const person = dayPlan.people.find((item) => item.id === request.personId);
+      if (!person) return;
+      const personNode = document.createElement("div");
+      personNode.className = `node person-node ${request.status === "pending" ? "is-pending" : ""}`;
+      personNode.textContent = person.name;
+      people.append(personNode);
+    });
+    branch.append(people);
+    branches.append(branch);
+  });
+  map.append(branches);
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "text-button";
+  close.textContent = "Zamknij mapę";
+  close.addEventListener("click", () => { connectionMap.hidden = true; });
+  connectionMap.append(title, hint, map, close);
+  connectionMap.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+function downloadJson(payload, filename) {
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
+}
+
+function setPlannerMessage(message, isError = false) {
+  plannerStatus.textContent = message;
+  plannerStatus.classList.toggle("is-error", isError);
 }
 
 function tagLabel(tag) {

@@ -53,7 +53,7 @@
         <h1>Teledysk jako rytualna wyprawa do betonowego królestwa Cybana.</h1>
         <p class="lead">
           Interaktywny plan klipu do <strong>„Kon-Sti-La-Na”</strong>: sceny z piosenki,
-          ujęcia, zadania Mańka, opcjonalne role Olki i Luny, bezpieczeństwo oraz montaż.
+          ujęcia, otwarte role ekipy, bezpieczeństwo oraz montaż.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#sceny">Otwórz sceny</a>
@@ -118,12 +118,12 @@
       <div class="section-heading wide">
         <p class="eyebrow">Mapa piosenki</p>
         <h2 id="scenesTitle">Sceny według fragmentów utworu</h2>
-        <p>Filtruj po części piosenki albo po osobach. Karty można rozwijać, a kluczowe ujęcia odznaczać.</p>
+        <p>Filtruj po części piosenki albo po roli. Karty można rozwijać, a kluczowe ujęcia odznaczać.</p>
       </div>
 
       <div class="controls" aria-label="Filtry scen">
         <label class="search-label" for="searchInput">Szukaj</label>
-        <input id="searchInput" type="search" placeholder="np. parapet, Luna, Cybek Meteo, refren…" />
+        <input id="searchInput" type="search" placeholder="np. parapet, meteo, refren, BHP…" />
         <div class="filter-row" id="filterRow" aria-label="Przyciski filtrów"></div>
       </div>
 
@@ -134,16 +134,60 @@
       <div class="section-heading wide">
         <p class="eyebrow">Logistyka</p>
         <h2 id="planTitle">Plan dnia nagrań</h2>
-        <p>Kolejność jest ustawiona tak, żeby najpierw zgarnąć ujęcia lokacji, potem performance, a na końcu outro i ewentualne domknięcia.</p>
+        <p>Otwarta tablica jednego dnia: zgłoś chęć pomocy albo lokalnie skoordynuj obsadę.</p>
       </div>
-      <div class="timeline" id="timeline"></div>
+      <div class="planner-shell" id="planner">
+        <div class="planner-tabs" role="tablist" aria-label="Tryb planu dnia">
+          <button class="planner-tab is-active" type="button" id="joinTab" role="tab" aria-selected="true" aria-controls="joinPanel">Dołącz do dnia</button>
+          <button class="planner-tab" type="button" id="coordinateTab" role="tab" aria-selected="false" aria-controls="coordinatePanel">Koordynuj dzień</button>
+        </div>
+        <p class="planner-status" id="plannerStatus" aria-live="polite"></p>
+
+        <section class="planner-panel" id="joinPanel" role="tabpanel" aria-labelledby="joinTab">
+          <h3>Wpadam pomóc</h3>
+          <p>Wpisz pseudonim i zaznacz zadania, do których możesz dołączyć. Pobierzesz plik zgłoszenia do przekazania koordynującej osobie.</p>
+          <label class="planner-field" for="signupName">Imię lub pseudonim</label>
+          <input class="planner-input" id="signupName" type="text" maxlength="60" autocomplete="nickname" placeholder="np. Ktoś z kamerą" />
+          <div class="signup-task-list" id="signupTaskList"></div>
+          <button class="button" type="button" id="exportSignupButton">Pobierz zgłoszenie JSON</button>
+        </section>
+
+        <section class="planner-panel" id="coordinatePanel" role="tabpanel" aria-labelledby="coordinateTab" hidden>
+          <h3>Koordynuj lokalnie</h3>
+          <p>Ten widok działa tylko w tej przeglądarce. Zaimportuj zgłoszenia, zatwierdzaj obsadę i eksportuj migawkę planu.</p>
+          <div class="planner-actions">
+            <label class="button secondary" for="plannerImport">Importuj plik JSON</label>
+            <input id="plannerImport" type="file" accept="application/json,.json" hidden />
+            <button class="button secondary" type="button" id="exportPlanButton">Eksportuj plan JSON</button>
+          </div>
+          <form class="task-form" id="taskForm">
+            <h4>Dodaj zadanie</h4>
+            <label class="planner-field" for="taskStage">Etap</label>
+            <select class="planner-input" id="taskStage" name="taskStage" required></select>
+            <label class="planner-field" for="taskTitle">Nazwa zadania</label>
+            <input class="planner-input" id="taskTitle" name="taskTitle" type="text" maxlength="80" required />
+            <label class="planner-field" for="taskDescription">Opis</label>
+            <input class="planner-input" id="taskDescription" name="taskDescription" type="text" maxlength="160" required />
+            <label class="planner-field" for="taskRole">Rola</label>
+            <input class="planner-input" id="taskRole" name="taskRole" type="text" maxlength="50" required placeholder="np. kamera" />
+            <label class="planner-field" for="taskCapacity">Liczba miejsc</label>
+            <input class="planner-input" id="taskCapacity" name="taskCapacity" type="number" min="1" max="20" value="1" required />
+            <label class="planner-check"><input id="taskSafety" name="taskSafety" type="checkbox" /> Zadanie wymaga uwagi BHP</label>
+            <button class="button small" type="submit">Dodaj do planu</button>
+          </form>
+          <div class="request-list" id="requestList"></div>
+        </section>
+
+        <div class="planner-board" id="planBoard"></div>
+        <section class="connection-map" id="connectionMap" hidden aria-live="polite"></section>
+      </div>
     </section>
 
     <section class="section" id="ekipa" aria-labelledby="crewTitle">
       <div class="section-heading wide">
         <p class="eyebrow">Role</p>
-        <h2 id="crewTitle">Zadania dla ekipy</h2>
-        <p>Mały skład, więc każdy ma dwie funkcje: techniczną i ekranową. Luna ma trzecią: wygrać z planem zdjęciowym.</p>
+        <h2 id="crewTitle">Otwarte role ekipy</h2>
+        <p>Każda osoba może dobrać rolę techniczną albo ekranową. Priorytetem pozostaje bezpieczeństwo, nie liczba ujęć.</p>
       </div>
       <div class="crew-grid" id="crewGrid"></div>
     </section>
@@ -173,7 +217,7 @@
         </article>
         <article class="card">
           <h3>Bridge</h3>
-          <p>Telefoniczny, bliski, trochę jak piracka prognoza pogody z końca świata. <strong>Cybek Meteo</strong> ma być absurdalny, ale czytelny.</p>
+          <p>Telefoniczny, bliski, trochę jak piracka prognoza pogody z końca świata. Segment meteo ma być absurdalny, ale czytelny.</p>
         </article>
         <article class="card">
           <h3>Outro</h3>
@@ -225,6 +269,7 @@
     </article>
   </template>
 
+  <script src="planner-core.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
