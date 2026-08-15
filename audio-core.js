@@ -12,6 +12,10 @@
     };
   }
 
+  function createTrackVariants(numbers) {
+    return numbers.map((number) => createTrackVariant(number));
+  }
+
   function bindExclusivePlayback(audioElements) {
     const players = [...audioElements];
     players.forEach((current) => {
@@ -23,5 +27,5 @@
     });
   }
 
-  return { createTrackVariant, bindExclusivePlayback };
+  return { createTrackVariant, createTrackVariants, bindExclusivePlayback };
 });

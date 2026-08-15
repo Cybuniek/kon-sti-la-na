@@ -1,6 +1,7 @@
 const STORAGE_KEY = "konstilana-progress-v1";
 const AUDIO_WIDGET_KEY = "konstilana-audio-widget-collapsed";
 const PLAN_STORAGE_KEY = "konstilana-open-day-plan-v1";
+const audioTrackNumbers = ["01", "02"];
 
 const filters = [
   { id: "all", label: "Wszystko" },
@@ -353,6 +354,7 @@ const introSkipButton = document.querySelector("#introSkipButton");
 const replayIntroButton = document.querySelector("#replayIntroButton");
 const audioWidget = document.querySelector("#audioWidget");
 const audioWidgetToggle = document.querySelector("#audioWidgetToggle");
+const audioVariantList = document.querySelector("#audioVariantList");
 const joinTab = document.querySelector("#joinTab");
 const coordinateTab = document.querySelector("#coordinateTab");
 const joinPanel = document.querySelector("#joinPanel");
@@ -454,11 +456,45 @@ function closeIntroAnimation() {
 
 function setupAudioWidget() {
   if (!audioWidget || !audioWidgetToggle) return;
+  renderAudioVariants();
   const isCollapsed = localStorage.getItem(AUDIO_WIDGET_KEY) === "true";
   setAudioWidgetCollapsed(isCollapsed);
   audioWidgetToggle.addEventListener("click", () => {
     setAudioWidgetCollapsed(!audioWidget.classList.contains("is-collapsed"));
   });
+}
+
+function renderAudioVariants() {
+  if (!audioVariantList || !window.AudioCore) return;
+  const variants = AudioCore.createTrackVariants(audioTrackNumbers);
+  audioVariantList.innerHTML = "";
+
+  if (!variants.length) {
+    const empty = document.createElement("p");
+    empty.className = "audio-widget-empty";
+    empty.textContent = "Brak dostępnych wariantów utworu.";
+    audioVariantList.append(empty);
+    return;
+  }
+
+  variants.forEach((variant) => {
+    const item = document.createElement("article");
+    item.className = "audio-variant";
+
+    const label = document.createElement("p");
+    label.textContent = variant.label;
+
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    audio.preload = "metadata";
+    audio.src = variant.src;
+    audio.textContent = "Twoja przeglądarka nie obsługuje odtwarzacza audio.";
+
+    item.append(label, audio);
+    audioVariantList.append(item);
+  });
+
+  AudioCore.bindExclusivePlayback(audioVariantList.querySelectorAll("audio"));
 }
 
 function setAudioWidgetCollapsed(isCollapsed) {
