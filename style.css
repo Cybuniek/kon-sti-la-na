@@ -1200,11 +1200,26 @@ h3 {
   padding: 0 14px 14px;
 }
 
-.audio-widget-body p {
+.audio-variant-list {
+  display: grid;
+  gap: 12px;
+}
+
+.audio-variant {
+  display: grid;
+  gap: 6px;
+}
+
+.audio-variant p,
+.audio-widget-empty {
   margin: 0 0 10px;
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.4;
+}
+
+.audio-variant p {
+  margin: 0;
 }
 
 .audio-widget audio {
